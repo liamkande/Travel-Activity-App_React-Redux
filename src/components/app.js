@@ -49,7 +49,8 @@ export class App extends Component {
                        )}/> :
        (this.props.location.pathname === "/add-day") ?
         <AddDayForm /> :
-        <TravelDayList  days={this.state.allTravelDays}/>
+        <TravelDayList  days={this.state.allTravelDays}
+                        filter={this.props.params.filter}/>
     }
 			</div>
 		)

@@ -4,26 +4,48 @@ import Calendar from 'react-icons/lib/fa/calendar'
 import Hotel from 'react-icons/lib/md/location-city'
 import { TravelDayRow } from './travelDayRow'
 import { PropTypes } from 'react'
+import { Link } from 'react-router'
 
-export const TravelDayList = ({days}) => (
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>City</th>
-        <th>Hotel</th>
-        <th>Airbnb</th>
-      </tr>
-    </thead>
-    <tbody>
-      {days.map((day, i) =>
-        <TravelDayRow key={i}
-                      {...day} />
-      )}
-    </tbody>
+export const TravelDayList = ({days, filter}) => {
+  const filteredDays = (!filter ||
+    !filter.match(/hotel|airbnb/)) ?
+    days:
+    days.filter(day => day[filter])
 
-  </table>
-)
+  return (
+    <div className="travel-day-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>City</th>
+            <th>Hotel</th>
+            <th>Airbnb</th>
+          </tr>
+          <tr>
+            <td colSpan={4}>
+              <Link to="/list-days">
+                All Days
+              </Link>
+              <Link to="/list-days/hotel">
+                Hotel Stays
+              </Link>
+              <Link to="/list-days/airbnb">
+                Airbnb Stays
+              </Link>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredDays.map((day, i) =>
+            <TravelDayRow key={i}
+                          {...day} />
+          )}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 TravelDayList.propTypes = {
   days: function(props) {
     if(!Array.isArray(props.days)) {
