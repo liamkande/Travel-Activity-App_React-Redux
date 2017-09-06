@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { TravelDayList } from './travelDayList'
 import { TravelDayCount } from './travelDayCount'
 import { AddDayForm } from './addDayForm'
+import { Menu } from './menu'
 
 export class App extends Component {
   constructor(props) {
@@ -37,10 +38,11 @@ export class App extends Component {
 	render() {
 		return (
 			<div className="app">
+      <Menu />
       {(this.props.location.pathname === "/") ?
       <TravelDayCount total={this.countDays()}
-                      city={this.countDays(
-                           "city"
+                      hotel={this.countDays(
+                           "hotel"
                          )}
                       airbnb={this.countDays(
                            "airbnb"
