@@ -9,8 +9,7 @@ export const TravelDayRow = ({city, date,
 
     <tr>
       <td>
-        {date.getMonth()+1}/{date.getDate()}/
-        {date.getFullYear()}
+        {date}
       </td>
       <td>
         {city}
@@ -26,7 +25,7 @@ export const TravelDayRow = ({city, date,
 
   TravelDayRow.propTypes = {
     city: PropTypes.string.isRequired,
-    date: PropTypes.instanceOf(Date).isRequired,
+    date: PropTypes.string.isRequired,
     hotel: PropTypes.bool,
     airbnb: PropTypes.bool
   }

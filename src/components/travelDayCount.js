@@ -7,14 +7,14 @@ import { PropTypes } from 'react'
 
 
 const percentToDecimal = (decimal) => {
-    return ((decimal * 100) + '%')
+    return ((decimal * 100)+ '%')
 }
 const calcGoalProgress = (total, goal) => {
   return percentToDecimal(total/goal)
 }
 
 export const TravelDayCount = ({total=50, hotel=10,
-                                airbnb=15, goal=75}) => (
+                                airbnb=15, goal=100}) => (
     <div className= "travel-day-count">
       <div className="total-days">
         <span>{total}</span>

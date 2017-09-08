@@ -11,25 +11,23 @@ export class App extends Component {
       allTravelDays: [
   			{
   				city: "Paris, France",
-  				date: new Date("2/12/2017"),
+  				date: "2016-07-17",
   				hotel: true,
   				airbnb: false
-  			},
-  			{
-  				city: "Milan, Italy",
-  				date: new Date("12/07/2016"),
-  				hotel: true,
-  				airbnb: false
-  			},
-  			{
-  				city: "Miami, Florida",
-  				date: new Date("3/16/2017"),
-  				hotel: false,
-  				airbnb: true
   			}
   		]
     }
+    this.addDay = this.addDay.bind(this)
   }
+  addDay(newDay){
+    this.setState({
+      allTravelDays: [
+        ...this.state.allTravelDays,
+        newDay
+      ]
+    })
+  }
+
   countDays(filter) {
     const { allTravelDays } = this.state
     return allTravelDays.filter(
@@ -48,7 +46,7 @@ export class App extends Component {
                            "airbnb"
                        )}/> :
        (this.props.location.pathname === "/add-day") ?
-        <AddDayForm /> :
+        <AddDayForm  onNewDay={this.addDay}/> :
         <TravelDayList  days={this.state.allTravelDays}
                         filter={this.props.params.filter}/>
     }
