@@ -1,0 +1,28 @@
+{
+  "allTravelDays": [
+    {
+      "city": "Paris, France",
+      "date": "2016-07-17",
+      "hotel": true,
+      "airbnb": false
+    },
+    {
+      "city": "Millan, Italy",
+      "date": "2016-12-8",
+      "hotel": false,
+      "airbnb": true
+    },
+    {
+      "city": "London, UK",
+      "date": "2016-12-25",
+      "hotel": true,
+      "airbnb": false
+    }
+  ],
+  "goal":10,
+  "errors":[],
+  "cityNames": {
+    "fetching":false,
+    "suggestions": ["Bangkok, Thailand", "London, UK", "Paris, France", "Singapore, Rep.Singapore"]
+  }
+}
